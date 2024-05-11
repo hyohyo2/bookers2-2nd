@@ -7,5 +7,5 @@ class User < ApplicationRecord
   has_one_attached :prifile_image       
   
   validates :name, presence: true, length: { minimum: 2 }
-  
+  has_many :books, dependent: :destroy
 end
