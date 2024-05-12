@@ -12,8 +12,14 @@
 
   <body>
     <%= render 'layouts/header' %>
-    <main class="mb-auto">
-      <%= yield %>
+    <main>
+      <div class="container mt-3">
+        <div class="row">
+          <div class="mx-auto col-11 col-sm-10 col-lg-8 col-xl-6">
+            <%= yield %>
+          </div>
+        </div>
+      </div>
     </main>
     <%= render 'layouts/footer' %>
   </body>
