@@ -27,6 +27,11 @@
                   Edit
                 <% end %>
               </td>
+              <td>
+                <%= link_to book_path(@book), method: :delete, class: "btn btn-sm btn-danger", "data-confirm" => "本当に消しますか？" do %>
+                  Destroy
+                <% end %>
+              </td>
             <% end %>
           </tr>
         </tbody>
