@@ -12,7 +12,7 @@
             <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
                 <li class="nav-item text-light">
-                  <%= link_to user_path(:id), class: 'nav-link text-light' do %>
+                  <%= link_to user_path(current_user), class: 'nav-link text-light' do %>
                     <i class="fa-solid fa-house"></i> Home
                   <% end %>
                 </li>

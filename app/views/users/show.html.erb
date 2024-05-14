@@ -4,12 +4,11 @@
       <!--ユーザ情報-->
       <%= render 'users/info', user: @user %>
       <!--投稿フォーム-->
-      <%= render 'books/form', book: @new_book %>
+      <%= render 'books/form', book: @book %>
     </div>
     <div class="col-md-8 offset-md-1">
       <h2>Books</h2>
       <%= render "books/index", books: @books %>
-       
     </div>
   </div>
 </div>
