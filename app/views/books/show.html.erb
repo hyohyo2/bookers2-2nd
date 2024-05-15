@@ -24,6 +24,7 @@
               <% end %>
             </td>
             <td><%= @book.body %></td>
+            <!--いいね機能の表示設定-->
             <td>
               <% if @book.favorited_by?(current_user) %>
                 <%= link_to book_favorite_path(@book), class: "text-danger", method: :delete do %>
@@ -34,6 +35,10 @@
                   <i class="fa-solid fa-heart"></i><%= @book.favorites.count %>
                 <% end %>
               <% end %>
+            </td>
+            <!--コメント数の表示設定-->
+            <td>
+              <%= render 'book_comments/count', book: @book %>
             </td>
             <% if @book.user == current_user %>
               <td>
@@ -50,6 +55,10 @@
           </tr>
         </tbody>
       </table>
+      <!--コメント一覧表示-->
+      <%= render 'book_comments/index', book: @book, user: @user %>
+      <!--コメント投稿フォーム-->
+      <%= render 'book_comments/form', book: @book, book_comment: @book_comment %>
     </div>
   </div>
 </div>
