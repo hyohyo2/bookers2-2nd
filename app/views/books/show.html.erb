@@ -8,6 +8,7 @@
       <%= render 'books/form', book: @new_book %>
     </div>
     <div class="col-md-8 offset-md-1">
+      <!--本の詳細表示-->
       <h2>Book detail</h2>
       <table class="table">
         <tbody>
@@ -40,6 +41,7 @@
             <td>
               <%= render 'book_comments/count', book: @book %>
             </td>
+            <!--ログインユーザ分のみeditとdestroyを表示する-->
             <% if @book.user == current_user %>
               <td>
                 <%= link_to edit_book_path(@book), class: "btn btn-sm btn-success" do %>
