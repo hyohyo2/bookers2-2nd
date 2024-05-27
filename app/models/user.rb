@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :books, dependent: :destroy
   has_many :favorites, dependent: :destroy
   has_many :book_comments, dependent: :destroy
+  has_many :notifications, dependent: :destroy
   
   # 一人のユーザに対してフォローしているのは複数
   # モデルの関連付け→任意の名前、クラス→中間テーブル、外部キー→フォローするユーザid、
@@ -32,6 +33,17 @@ class User < ApplicationRecord
   def following?(user)
     followings.include?(user)
   end
+  
+  GUEST_USER_EMAIL = "guest@example.com"
+    def self.guest
+      find_or_create_by!(email: GUEST_USER_EMAIL) do |user|
+        user.password = SecureRandom.urlsafe_base64
+        user.name = "guestuser"
+      end
+    end
+    def guest_user?
+      email == GUEST_USER_EMAIL
+    end
   
   
   validates :name, presence: true, uniqueness: true, length: { in: 2..20 }
