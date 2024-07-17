@@ -1,13 +1,16 @@
-<h4>検索結果</h4>
-<table class="table">
-  <thead>
-    <tr>
-      <th>投稿数</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= search_book %></td>
-    </tr>
-  </tbody>
-</table>
+<!--検索フォーム-->
+<div class="row justify-content-center my-3">
+  <div class="col-auto">
+    <!--フォーム-->
+    <%= form_with url: user_search_date_path(user), method: :get, local: false do |f| %>
+      <div class="input-group">
+        <%= f.date_field :created_at, class: "form-control" %>
+        <div class="input-group-append">
+          <%= f.submit "検索", class: "btn btn-info" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="daily_posts_table">
+</div>
