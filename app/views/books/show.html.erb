@@ -24,6 +24,9 @@
                 <%= @book.title %>
               <% end %>
             </td>
+            <td>
+              <%= link_to @book.category, tagsearches_path(content: @book.category) %>
+            </td>
             <td><%= @book.body %></td>
             <!--いいね機能の表示設定-->
             <td id="favorite_btn_<%= @book.id %>">

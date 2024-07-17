@@ -13,9 +13,12 @@
   <body>
     <%= render 'layouts/header' %>
     <main>
-      <div class="d-flex justify-content-center my-3">
-        <%= render 'layouts/search' %>
-      </div>
+      <% if user_signed_in? %>
+        <div class="d-flex justify-content-center my-3">
+          <%= render 'layouts/search' %>
+          <%= render 'tagsearches/tagsearch' %>
+        </div>
+      <% end %>
       <div>
         <%= flash[:notice] %>
       </div>

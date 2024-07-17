@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root to: 'homes#top'
   get 'home/about' => 'homes#about'
   get 'search' => 'searches#search'
+  get 'tagsearches' => 'tagsearches#search'
   resources :users, only: [:index, :show, :edit, :update] do
     get 'search_date' => 'users#search'
     resource :relationships, only: [:create, :destroy]

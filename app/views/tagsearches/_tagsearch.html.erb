@@ -1,0 +1,14 @@
+<div class="search_form ml-2">
+  <table align="center">
+    <tr>
+      <div class="search_form">
+        <%= form_with url: tagsearches_path, method: :get, local: true do |f| %>
+          <td><%= f.text_field :content %></td>
+          <td><%= f.submit "タグ検索", class: "btn btn-sm btn-info" %></td>
+        <% end %>
+      </div>
+    </tr>
+  </table>
+</div>
+
+
