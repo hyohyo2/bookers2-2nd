@@ -1,7 +1,7 @@
 <div class="container px-5 px-sm-0 mt-3">
  <div class="row">
     <div class="col-md-3">
-      
+
       <!--ユーザ情報-->
       <%= render 'users/info', user: @user %>
       <!--投稿フォーム-->
@@ -15,7 +15,7 @@
           <tr>
             <td>
               <%= link_to user_path(@book.user) do %>
-                <%= image_tag @book.user.get_profile_image(100,100) %><br>
+                <%= image_tag @book.user.get_profile_image(30,30) %><br>
                 <%= @book.user.name %>
               <% end %>
             </td>
@@ -32,6 +32,10 @@
             <!--コメント数の表示設定-->
             <td>
               <%= render 'book_comments/count', book: @book %>
+            </td>
+            <td>
+              <!--評価数-->
+              <%= render 'books/static.rate', book: @book %>
             </td>
             <!--ログインユーザ分のみeditとdestroyを表示する-->
             <% if @book.user == current_user %>
