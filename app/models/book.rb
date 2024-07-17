@@ -32,4 +32,12 @@ class Book < ApplicationRecord
       notifications.create(user_id: follower.id)
     end
   end
+  
+  # 新着順
+  scope :latest, -> {order(created_at: :desc)}
+  # 古い順
+  scope :old, -> {order(created_at: :asc)}
+  # 評価順
+  scope :star_count, -> {order(star: :desc)}
+  
 end

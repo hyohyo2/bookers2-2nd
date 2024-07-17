@@ -4,7 +4,16 @@ class BooksController < ApplicationController
     @book = Book.new
     @books = Book.all
     @user = current_user
-
+    
+    if params[:latest]
+      @books = Book.latest
+    elsif params[:old]
+      @books = Book.old
+    elsif params[:star_count]
+      @books = Book.star_count
+    else
+      @books = Book.all
+    end
   end
 
   def create
@@ -63,5 +72,4 @@ class BooksController < ApplicationController
       redirect_to books_path
     end
   end
-
 end
